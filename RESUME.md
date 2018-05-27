@@ -1,8 +1,8 @@
 # 李升明
 ###### 待完善
 # 联系方式
-- 手机：18810546490
-- Email：lishengming918@gmail.com
+- 手机：**188-1054-6490**
+- Email：**lishengming918@gmail.com**
 
 # 个人信息
 
