@@ -5,7 +5,7 @@ package lsm.study.design.model.singleton;
  * @Description 饿汉模式1
  */
 public class HungryManSingleton {
-    public static HungryManSingleton singleton=new HungryManSingleton();
+    private static HungryManSingleton singleton=new HungryManSingleton();
 
     private HungryManSingleton(){}
 

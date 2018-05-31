@@ -5,7 +5,7 @@ package lsm.study.design.model.singleton;
  * @Description 懒汉模式2
  */
 public class LazyManSingleton2 {
-    public static LazyManSingleton2 singleton=null;
+    private static LazyManSingleton2 singleton=null;
 
     private LazyManSingleton2(){}
 
