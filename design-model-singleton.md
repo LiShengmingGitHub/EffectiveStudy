@@ -29,14 +29,22 @@
 
 懒汉模式1，用synchronized加在方法上了，注意，单例类这个方法是静态类，是一把类锁，如果类中还有其他竟然方法都会受截至，粒度是很大的。所以提出了第二种单例模式，同时考虑到多线程场景，需要双重判断。
 
-似乎是比较完美了，单终归还是使用了用synchronized，于是乎，大牛们又整出了一个静态内部类的实现方式，[代码示例](code-section/lsm/study/design/model/singleton/StaticInnerClassSingelton.java)
+似乎是比较完美了，单终归还是使用了用synchronized，于是乎，大牛们又整出了一个静态内部类的实现方式，[代码示例](code-section/lsm/study/design/model/singleton/StaticInnerClassSingelton1.java)
 
     知识点：静态内部类里的静态变量是在实际调用的时候初始化的，并且，由于不是方法调用， 所以不存在线程问题
 静态内部类就完美了吗，当然不是，在一些很特殊的情况下，还是会有问题，一个是反射，一个是反序列化
 ### 4.反射情况下，如何保证单例？
+通过分析代码，不难发现，只要通过反射破坏构造函数的访问性，就能够创建一个新实例
 
+[测试代码示例](code-section/lsm/study/design/model/singleton/StaticInnerClassSingelton1Test.java)
+
+解决方案，很简单，就是反射构造的时候给它抛出个异常就行了。
+
+[示例](code-section/lsm/study/design/model/singleton/StaticInnerClassSingelton2.java)
 ### 5.反序列化下，如何保证单例？
+序列化这种情况就太特殊了，就先不深入研究了。
 
+需要实现序列化接口中的readResolve()方法来解决。应用场景很有限，做初步了解，知道有这么回事就行了。
 ***
 **总结**
 
